@@ -186,3 +186,23 @@
   });
 
 })(jQuery);
+
+function calculateAge(dateOfBirth) {
+  const birthDate = new Date(dateOfBirth);
+  const today = new Date();
+
+  let age = today.getFullYear() - birthDate.getFullYear();
+  const monthDifference = today.getMonth() - birthDate.getMonth();
+  const dayDifference = today.getDate() - birthDate.getDate();
+
+  // Adjust age if the current month/day is before the birth month/day
+  if (monthDifference < 0 || (monthDifference === 0 && dayDifference < 0)) {
+      age--;
+  }
+
+  return age;
+}
+
+
+document.querySelector(".age").innerHTML = `  <i class="icofont-rounded-right"></i>
+<strong>Age:</strong>${calculateAge('2004-12-24')} `

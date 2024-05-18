@@ -12,6 +12,10 @@ const projects = [
     link: "https://itskayumkhan.github.io/MusicPlayer/",
   },
   {
+    img: "ecommerce",
+    link: "https://e-commerceclient.netlify.app/",
+  },
+  {
     img: "zomoto",
     link: "https://itskayumkhan.github.io/Cloan_Zomato/",
   },
@@ -101,10 +105,6 @@ const leftSkill = [
   },
   {
     skill: "EXPRESS.JS",
-    score: "60",
-  },
-  {
-    skill: "MERN STACK",
     score: "60",
   },
 ];

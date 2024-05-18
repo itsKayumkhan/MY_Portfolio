@@ -1075,3 +1075,17 @@ section {
     padding-right: 20px 15px;
   }
 }
+
+
+.btn-resume{
+  background-color: #149ddd;
+  border:1px solid #1f5297;
+  color: white;
+  border-radius: 2px;
+  padding: 1px 4px;
+  margin-top: 4px;
+}
+.btn-resume:hover{
+  color: white;
+}
+
