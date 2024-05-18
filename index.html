@@ -161,7 +161,7 @@
                 </ul>
               </div>
             </div>
-           
+
           </div>
         </div>
       </div>
@@ -257,13 +257,11 @@
           </p>
         </div>
 
-        <div class="row skills-content" >
+        <div class="row skills-content">
           <div class="col-lg-6" data-aos="fade-up" id="leftSideSkill">
           </div>
 
-          <div class="col-lg-6" 
-          id="rightSideSkill"
-          data-aos="fade-up" data-aos-delay="100">
+          <div class="col-lg-6" id="rightSideSkill" data-aos="fade-up" data-aos-delay="100">
 
           </div>
         </div>
@@ -284,7 +282,7 @@
             here.
           </p>
           <div class="">
-              <a class="btn-resume" href="./KAYUMKHAN RESUME .pdf" download="kayum's resume.pdf">RESUME</a>
+            <a class="btn-resume" href="./KAYUMKHAN RESUME .pdf" download="kayum's resume.pdf">RESUME</a>
           </div>
         </div>
 
@@ -316,7 +314,7 @@
                   Pass 12th (PCM) with 89.40%
                 </em>
               </p>
-              
+
             </div>
             <div class="resume-item">
               <h4>BCA (persevering)</h4>
@@ -453,7 +451,7 @@
               strong command of various programming languages and frameworks.
             </p>
           </div>
-          
+
         </div>
       </div>
     </section>
@@ -580,7 +578,7 @@
           </div>
 
           <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+            <form onsubmit="sendMessage(event)">
               <div class="form-row">
                 <div class="form-group col-md-6">
                   <label for="name">Your Name</label>
@@ -603,7 +601,7 @@
               </div>
               <div class="form-group">
                 <label for="name">Message</label>
-                <textarea class="form-control" name="message" rows="10" data-rule="required"
+                <textarea class="form-control" id="message" name="message" rows="10" data-rule="required"
                   data-msg="Please write something for us"></textarea>
                 <div class="validate"></div>
               </div>
@@ -655,6 +653,40 @@
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
   <script src="assets/js/script.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+  </script>
+  <script type="text/javascript">
+    (function () {
+      emailjs.init("EXpqfM1gzALKUdKT0");
+    })();
+  </script>
+
+  <script>
+    const sendMessage = (e) => {
+      e.preventDefault(); // Corrected the typo here
+      console.log(document.getElementById("message"))
+      const templateParams = {
+        message: document.getElementById("message").value,
+        from_name: document.getElementById("name").value,
+        to_name: 'kayumkhan',
+        email1: document.getElementById("email").value,
+        email: "kayumkhankks2004@gmail.com",
+        subject: document.getElementById("subject").value
+      };
+      console.log(templateParams)
+
+      emailjs.send('service_mq1zgbg', 'template_fi0gpfp', templateParams).then(
+        (response) => {
+          console.log('SUCCESS!', response.status, response.text);
+          document.querySelector('.sent-message').style.display = 'block'; // Show success message
+        },
+        (error) => {
+          console.log('FAILED...', error);
+          document.querySelector('.error-message').style.display = 'block'; // Show error message
+        }
+      );
+    };
+  </script>
 </body>
 
 </html>
